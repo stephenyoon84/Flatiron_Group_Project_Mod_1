@@ -1,8 +1,25 @@
 # Group Project for Module 1 - Sean Lucius & Stephen Yoon
 
 - Cocktail app
-  - Search Cocktail by Ingredient
-  - Search Ingredient need for Cocktail
+  - User
+    - Guest: Doesn't have account. Guest can only use search function.
+    - User: Have account. User can create their own favorite list of cocktails.
+    - Bartender: Possible to check how many cocktails they can make.
+  - Search
+    - Search Cocktail by Ingredient
+    - Search Ingredient need for Cocktail
+
+- Story (At least 4)
+  1. As a user, ~~
+  2. As a user, ~~
+  3. As a guest, ~~
+  4. As a bartender, ~~
+
+- Table Information
+  - Recipe
+  - Ingredient
+  - User
+  - etc.
 
 - JSON url
   - https://github.com/teijo/iba-cocktails
