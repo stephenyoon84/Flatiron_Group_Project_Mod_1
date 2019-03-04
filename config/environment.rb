@@ -2,13 +2,13 @@
 require 'bundler/setup'
 Bundler.require
 
-# require 'sinatra/activerecord'
+require 'sinatra/activerecord'
 
 ActiveRecord::Base.establish_connection(
   adapter: 'sqlite3',
-  database: "db/development.sqlite"
+  database: "db/cocktail.db"
 )
 
-ActiveRecord::Base.logger = Logger.new(STDOUT)
+# ActiveRecord::Base.logger = Logger.new(STDOUT)
 
 require_all 'app'
