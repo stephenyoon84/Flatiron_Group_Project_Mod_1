@@ -35,9 +35,9 @@
   - http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Get%20your%20Cocktail
 
 - JSON url
-  - <a href="https://github.com/teijo/iba-cocktails" target="_blank">https://github.com/teijo/iba-cocktails</a>
-    - Ingredient: <a href="https://github.com/teijo/iba-cocktails/blob/master/ingredients.json" target="_blank">https://github.com/teijo/iba-cocktails/blob/master/ingredients.json</a>
-    - Recipe: <a href="https://github.com/teijo/iba-cocktails/blob/master/recipes.json" target="_blank">https://github.com/teijo/iba-cocktails/blob/master/recipes.json</a>
+  - <a href="https://github.com/teijo/iba-cocktails" target="_blank">IBA-Cocktails</a>
+    - <a href="https://github.com/teijo/iba-cocktails/blob/master/ingredients.json" target="_blank">Ingredient</a>
+    - <a href="https://github.com/teijo/iba-cocktails/blob/master/recipes.json" target="_blank">Recipe</a>
 
 - Final Project Guideline
   - https://learn.co/tracks/web-development-immersive-2-0-module-one/project-mode/projects/final-project-guidelines
