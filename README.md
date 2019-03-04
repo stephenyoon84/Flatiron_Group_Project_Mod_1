@@ -17,14 +17,21 @@
 
 - Table Information
   - Recipe
+    - name
+    - recipe hash is string
   - Ingredient
+    - name
+    - abv
+    - taste(optional)
   - User
+    - name
+    - password(simple vs real)
   - etc.
 
 - JSON url
-  - https://github.com/teijo/iba-cocktails
-    - Ingredient: https://github.com/teijo/iba-cocktails/blob/master/ingredients.json
-    - Recipe: https://github.com/teijo/iba-cocktails/blob/master/recipes.json
+  - <a href="https://github.com/teijo/iba-cocktails" target="_blank">https://github.com/teijo/iba-cocktails</a>
+    - Ingredient: <a href="https://github.com/teijo/iba-cocktails/blob/master/ingredients.json" target="_blank">https://github.com/teijo/iba-cocktails/blob/master/ingredients.json</a>
+    - Recipe: <a href="https://github.com/teijo/iba-cocktails/blob/master/recipes.json" target="_blank">https://github.com/teijo/iba-cocktails/blob/master/recipes.json</a>
 
 - Final Project Guideline
   - https://learn.co/tracks/web-development-immersive-2-0-module-one/project-mode/projects/final-project-guidelines
