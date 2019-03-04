@@ -1,5 +1,6 @@
 # Setting up the application
 require 'bundler/setup'
+
 Bundler.require
 
 require 'sinatra/activerecord'
