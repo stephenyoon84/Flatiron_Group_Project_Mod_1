@@ -5,6 +5,6 @@ require 'json'
 
 desc "Start our app console"
 task :console do
-  ActiveRecord::Base.logger = Logger.new(STDOUT)
+  # ActiveRecord::Base.logger = Logger.new(STDOUT)
   Pry.start
 end
