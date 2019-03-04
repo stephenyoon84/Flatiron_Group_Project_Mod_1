@@ -9,6 +9,9 @@
     - Search Cocktail by Ingredient
     - Search Ingredient need for Cocktail
 
+- Initial steps to run this app
+    1. run `rake db:migrate` and `rake db:seed` to create database
+
 - Story (At least 4)
   1. As a user, ~~
   2. As a user, ~~
