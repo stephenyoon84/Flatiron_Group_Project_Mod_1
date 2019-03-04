@@ -18,15 +18,21 @@
 - Table Information
   - Recipe
     - name
-    - recipe hash is string
   - Ingredient
     - name
     - abv
     - taste(optional)
+  - Recipe_Ingredient
+    - recipe_id
+    - ingredient_id
+    - amount
   - User
     - name
     - password(simple vs real)
   - etc.
+
+- Title
+  - http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Get%20your%20Cocktail
 
 - JSON url
   - <a href="https://github.com/teijo/iba-cocktails" target="_blank">https://github.com/teijo/iba-cocktails</a>
