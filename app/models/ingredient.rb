@@ -8,7 +8,7 @@ class Ingredient < ActiveRecord::Base
   end
 
   def possible_cocktails_two_ing(ing2)
-    self.recipes & ing2.recipes
+    (self.recipes & ing2.recipes).each{|d| puts d.name}
   end
 
 end
