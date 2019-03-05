@@ -96,9 +96,9 @@ class CocktailApp
     print "Would you like to add another ingredient? (y/n)\n\sInput: "
     user_input3 = gets.chomp
     case user_input3
-    when "y" || "Y" || "yes" || "YES" || "Yes"
+    when "y" # || "Y" || "yes" || "YES" || "Yes"
       self.find_by_ingredient_second(user_input)
-    when "n" || "N" || "no" || "NO" || "No"
+    when "n" # || "N" || "no" || "NO" || "No"
       print "Enjoy your cocktail!!"
     else
       self.invalid_option
