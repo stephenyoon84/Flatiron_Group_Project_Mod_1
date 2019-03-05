@@ -1,4 +1,5 @@
 ActiveRecord::Base.logger = nil
+require 'tty-table'
 
 module Screen
    def self.clear
@@ -39,7 +40,6 @@ class CocktailApp
       Screen.clear
       Artscii.goodbye
       Screen.next
-      # break
     else
       self.invalid_option
       self.main_menu
@@ -49,9 +49,9 @@ class CocktailApp
   def self.find_cocktail_by_name_menu
     Screen.clear
     DisplayTable.recipes_table
-    user_input = gets.chomp.to_i
-    a = Recipe.find_by(user_input)
-    a.print_needed_ingredients
+    # user_input = gets.chomp.to_i
+    # a = Recipe.find_by(user_input)
+    # a.print_needed_ingredients
     self.main_menu
   end
 
@@ -62,6 +62,19 @@ class CocktailApp
   end
 
   def self.find_cocktail_by_abv
-
+    Screen.clear
+    print "Choose a number for your cocktails based on their ABV.\n\s1. Light Cocktails\n\s2. Medium Cocktails\n\s3. Strong Cocktails\n\nInput: "
+    user_input = gets.chomp
+    case user_input
+    when "1"
+      Recipe.where("abv < 15").each{|x| puts "#{x.id}. #{x.name} has #{x.abv}% ABV."}
+    when "2"
+      Recipe.where("abv >= 15 AND abv < 30").each{|x| puts "#{x.id}. #{x.name} has #{x.abv}% ABV."}
+    when "3"
+      Recipe.where("abv >= 30 AND abv < 41").each{|x| puts "#{x.id}. #{x.name} has #{x.abv}% ABV."}
+    else
+      self.invalid_option
+    end
+    self.main_menu
   end
 end
