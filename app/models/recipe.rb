@@ -3,8 +3,8 @@ class Recipe < ActiveRecord::Base
   has_many :ingredients, through: :recipe_ingredients
 
   def print_needed_ingredients
-    self.ingredients.each { |ingredient| puts "#{ingredient.name}: #{in.amount} cl" }
-    puts "Preparation: #{self.preparation}"
+    self.ingredients.each { |ingredient| puts "- #{ingredient.name}: #{RecipeIngredient.find_by(recipe_id: self.id, ingredient_id: ingredient.id).amount} cl" }
+    puts "- Preparation: #{self.preparation}"
   end
 
   def get_ingredients_total_amount
