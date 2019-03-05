@@ -13,7 +13,7 @@
     1. run `rake db:migrate` and `rake db:seed` in your terminal to create database
 
 - Story (At least 4)
-  1. As a user, ~~
+  1. As a user, I want to be able to enter an ingredient/ingredients that I currently have and get back a list of drinks that I can make with what I have.
   2. As a user, ~~
   3. As a guest, ~~
   4. As a bartender, ~~
