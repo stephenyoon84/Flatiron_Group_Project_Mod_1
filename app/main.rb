@@ -17,18 +17,16 @@ class CocktailApp
   def self.welcome
     Screen.clear
     Artscii.welcome
-    print "Welcome to Get Your Cocktail! You can search what kind of ingredients you need to make cocktail you want or you can get cocktail recipes with your own ingredients.\n"
+    print "\s\sWelcome to Get Your Cocktail! You can search what kind of ingredients you need to make cocktail you want or you can get cocktail recipes with your own ingredients.\n"
     # Screen.next
   end
 
   def self.invalid_option
-    print "Please select a valid option.\nInput: "
-    Screen.next
-    Screen.clear
+    print "\n\n\s\sPlease select a valid option.\n"
   end
 
   def self.main_menu
-    print "\n\n\n\nPlease choose the menu.\n1. Find a cocktail by name.\n2. Find possible cocktail with your own liqours.\n3. Find cocktails based on ther ABV.\n4. Exit.\nInput: "
+    print "\n\n\n\n\sPlease choose the menu.\n\s\s1. Find a cocktail by name.\n\s\s2. Find possible cocktail with your own liqours.\n\s\s3. Find cocktails based on ther ABV.\n\s\s4. Exit.\n\s\sInput: "
     user_input = gets.chomp
     case user_input
     when "1"
@@ -44,12 +42,14 @@ class CocktailApp
       # break
     else
       self.invalid_option
+      self.main_menu
     end
   end
 
   def self.find_cocktail_by_name_menu
     Screen.clear
     DisplayTable.recipes_table
+
     self.main_menu
   end
 

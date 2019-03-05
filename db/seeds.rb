@@ -15,7 +15,7 @@ require 'sqlite3'
   recipe_array = JSON.parse(File.read(recipe_path))
 
   recipe_array.each do |x|
-    Recipe.find_or_create_by(name: x["name"])
+    a = Recipe.find_or_create_by(name: x["name"])
   end
 
   recipe_array.each do |x|
@@ -27,34 +27,8 @@ require 'sqlite3'
       end
     end
   end
-  # DB = SQLite3::Database.new "cocktail.db"
-  #
-  # def self.insert_ingredient_to_table
-  #   @ingredient_hash.each do |k, v|
-  #     sql = <<-SQL
-  #         INSERT INTO ingredients (name, abv, taste) VALUES (?, ?, ?)
-  #         SQL
-  #     DB.execute(sql, k, v["abv"], v["taste"])
-  #   end
-  # end
-  #
-  # def self.insert_recipe_to_table
-  #   @recipe_array.each do |x|
-  #     sql = <<-SQL
-  #         INSERT INTO recipes (name) VALUES (?)
-  #         SQL
-  #     DB.execute(sql, x["name"])
-  #   end
-  # end
-  #
-  # def self.insert_recipe_ingredient_to_table
-  #
-  # end
-# end
 
-# ImportJson.insert_ingredient_to_table
-# ImportJson.insert_recipe_to_table
-# ImportJson.insert_recipe_ingredient_to_table
-
-
-# Ingredient.create(data)
+  recipe_array.each do |x|
+    a = Recipe.find_or_create_by(name: x["name"])
+    a.update(abv: a.calculate_abv, preparation: x["preparation"])
+  end
