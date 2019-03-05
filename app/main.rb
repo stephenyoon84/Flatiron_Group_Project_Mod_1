@@ -15,8 +15,9 @@ end
 
 class CocktailApp
   def self.welcome
-
-    print "Welcome to Get Your Cocktail! You can search what kind of ingredients you need to make cocktail you want or you can get cocktail recipes with your own ingredients."
+    Screen.clear
+    puts "Art".green
+    print "Welcome to Get Your Cocktail! You can search what kind of ingredients you need to make cocktail you want or you can get cocktail recipes with your own ingredients.\n"
     Screen.next
     # Screen.clear
   end

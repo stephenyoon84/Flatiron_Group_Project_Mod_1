@@ -745,7 +745,8 @@
         "ingredient": "Pineapple juice" },
       { "special": "1 dash Lime juice" },
       { "special": "Top with Prosecco" }
-    ] },
+    ],
+    "preparation": "Shake pour ingredients with ice, strin into glass." },
   { "name": "Sex on the Beach",
     "glass": "highball",
     "category": "Longdrink",
