@@ -49,7 +49,9 @@ class CocktailApp
   def self.find_cocktail_by_name_menu
     Screen.clear
     DisplayTable.recipes_table
-
+    user_input = gets.chomp.to_i
+    a = Recipe.find_by(user_input)
+    a.print_needed_ingredients
     self.main_menu
   end
 
