@@ -17,8 +17,8 @@ class Ingredient < ActiveRecord::Base
 
   def possible_cocktails_two_ing(ing2)
     self.possible_cocktail_recipes & ing2.possible_cocktail_recipes
-
   end
+
 
 
   # def possible_drinks
