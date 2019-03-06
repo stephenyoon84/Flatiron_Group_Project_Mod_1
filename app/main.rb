@@ -1,5 +1,6 @@
 ActiveRecord::Base.logger = nil
 require 'tty-table'
+require_relative '../config/environment'
 
 module Screen
    def self.clear
