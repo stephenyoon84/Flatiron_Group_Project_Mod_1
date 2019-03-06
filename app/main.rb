@@ -27,6 +27,8 @@ class CocktailApp
   end
 
   def self.main_menu
+    Screen.clear
+    Artscii.welcome
     print "\n\n\sPlease choose the menu.\n\s\s1. Find a cocktail by name.\n\s\s2. Find possible cocktail with your own liqours.\n\s\s3. Find cocktails based on ther ABV.\n\s\s4. Exit.\n\s\sInput: "
     user_input = gets.chomp
     case user_input
@@ -53,7 +55,7 @@ class CocktailApp
       Recipe.find(user_input).print_needed_ingredients
       self.find_cocktail_by_name_menu_text
     when "quit", "Quit", "QUIT", "q", "Q"
-      Screen.clear
+      # Screen.clear
       self.main_menu
     else
       self.invalid_option
@@ -75,7 +77,7 @@ class CocktailApp
       Ingredient.find(user_input).print_possible_cocktails
       self.ask_user_want_second(user_input)
     when "quit", "Quit", "QUIT", "q", "Q"
-      Screen.clear
+      # Screen.clear
       self.main_menu
     else
       self.invalid_option
@@ -92,7 +94,7 @@ class CocktailApp
     when "n", "N", "no", "NO", "No"
       print "Enjoy your cocktail!!\nPress any key to back to Main menu."
       Screen.next
-      Screen.clear
+      # Screen.clear
       self.main_menu
     else
       self.invalid_option
@@ -114,7 +116,7 @@ class CocktailApp
       Screen.clear
       self.main_menu
     when "quit", "Quit", "QUIT", "q", "Q"
-      Screen.clear
+      # Screen.clear
       self.main_menu
     else
       self.invalid_option
@@ -142,8 +144,8 @@ class CocktailApp
       Recipe.where("abv >= 30 AND abv < 41").each{|x| puts "#{x.id}. #{x.name} has #{x.abv}% ABV."}
       self.find_cocktail_by_abv_text
     when "4"
-      Screen.clear
-      return self.main_menu
+      # Screen.clear
+      self.main_menu
     else
       self.invalid_option
       self.find_cocktail_by_abv_text
@@ -153,5 +155,27 @@ class CocktailApp
   def self.find_cocktail_by_abv
     Screen.clear
     self.find_cocktail_by_abv_text
+  end
+
+  def self.front_menu
+    print "\nPlease Select Menu.\n\s1. Sign In.\n\s2. Log In.\n\s3. I am a Guest.\n\s4. Exit.\n\n\s\sInput: "
+    user_input = gets.chomp
+    case user_input
+    when "1"
+      AccountHelper.signin
+      print "\nThank you for join us. Please enter any key to log in.\n"
+      Screen.next
+      AccountHelper.login
+    when "2"
+      AccountHelper.login
+    when "3"
+      CocktailApp.main_menu
+    when "4", "quit", "Quit", "q", "Q"
+      Screen.clear
+      Artscii.goodbye
+    else
+      self.invalid_option
+      self.front_menu
+    end
   end
 end
