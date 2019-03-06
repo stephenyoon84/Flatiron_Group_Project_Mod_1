@@ -45,47 +45,62 @@ class CocktailApp
     end
   end
 
+  def self.find_cocktail_by_name_menu_text
+    print "\n\nPlease input the cocktail  number to find your recipe.\nIf you want to go back to the main menu, please input quit.\n\sInput :"
+    user_input = gets.chomp
+    case user_input
+    when "1".."77"
+      Recipe.find(user_input).print_needed_ingredients
+      self.find_cocktail_by_name_menu_text
+    when "quit", "Quit", "QUIT", "q", "Q"
+      Screen.clear
+      self.main_menu
+    else
+      self.invalid_option
+      self.find_cocktail_by_name_menu_text
+    end
+  end
+
   def self.find_cocktail_by_name_menu
     Screen.clear
     DisplayTable.recipes_table
-    print "\n\nPlease input the cocktail  number to find your recipe.\n\sInput :"
-    user_input = gets.chomp.to_i
-    case user_input
-    when 1..77
-      Recipe.find(user_input).print_needed_ingredients
-    else
-      self.invalid_option
-      self.find_cocktail_by_name_menu
-    end
-    self.main_menu
+    self.find_cocktail_by_name_menu_text
   end
 
   def self.find_by_ingredient_first
-    print "Please select a first ingredient number you want to see available cocktails.\n\sInput: "
-    user_input = gets.chomp.to_i
+    print "Please select a first ingredient number you want to see available cocktails.\nIf you want to go back to the main menu, please input quit.\n\sInput: "
+    user_input = gets.chomp
     case user_input
-    when 1..52
+    when "1".."52"
       Ingredient.find(user_input).print_possible_cocktails
+    when "quit", "Quit", "QUIT", "q", "Q"
+      Screen.clear
+      self.main_menu
     else
       self.invalid_option
+      self.find_by_ingredient_first
     end
     return user_input
   end
 
   def self.find_by_ingredient_second(user_input)
-    print "Please select a second ingredient number you want to use with your first ingredient.\n\sInput: "
-    user_input2 = gets.chomp.to_i
+    print "Please select a second ingredient number you want to use with your first ingredient.\nIf you want to go back to the main menu, please input quit.\n\sInput: "
+    user_input2 = gets.chomp
     loop do
       if user_input2 == user_input
         print "You already selected that ingredient. Please select different one.\n\sInput: "
-        user_input2 = gets.chomp.to_i
+        user_input2 = gets.chomp
       end
       case user_input2
-      when 1..52
-          Ingredient.find(user_input).possible_cocktails_two_ing(Ingredient.find(user_input2))
-          break
+      when "1".."52"
+        Ingredient.find(user_input).possible_cocktails_two_ing(Ingredient.find(user_input2))
+        break
+      when "quit", "Quit", "QUIT", "q", "Q"
+        Screen.clear
+        self.main_menu
       else
         self.invalid_option
+        self.find_by_ingredient_second(user_input)
       end
     end
   end
@@ -97,32 +112,43 @@ class CocktailApp
     print "Would you like to add another ingredient? (y/n)\n\sInput: "
     user_input3 = gets.chomp
     case user_input3
-    when "y" # || "Y" || "yes" || "YES" || "Yes"
+    when "y", "Y", "yes", "YES", "Yes"
       self.find_by_ingredient_second(user_input)
-    when "n" # || "N" || "no" || "NO" || "No"
-      print "Enjoy your cocktail!!"
+    when "n", "N", "no", "NO", "No"
+      print "Enjoy your cocktail!!\nPress any key to back to Main menu."
+      Screen.next
+      Screen.clear
+      self.main_menu
     else
       self.invalid_option
     end
-    self.main_menu
+    # self.main_menu
   end
 
-  def self.find_cocktail_by_abv
-    Screen.clear
-    print "Choose a number for your cocktails based on their ABV.\n\s1. Light Cocktails\n\s2. Medium Cocktails\n\s3. Strong Cocktails\n\s4. Back to Main Menu\n\nInput: "
+  def self.find_cocktail_by_abv_text
+    print "\n\nChoose a number for your cocktails based on their ABV.\n\s1. Light Cocktails\n\s2. Medium Cocktails\n\s3. Strong Cocktails\n\s4. Back to Main Menu\n\nInput: "
     user_input = gets.chomp
     case user_input
     when "1"
       Recipe.where("abv < 15").each{|x| puts "#{x.id}. #{x.name} has #{x.abv}% ABV."}
+      self.find_cocktail_by_abv_text
     when "2"
       Recipe.where("abv >= 15 AND abv < 30").each{|x| puts "#{x.id}. #{x.name} has #{x.abv}% ABV."}
+      self.find_cocktail_by_abv_text
     when "3"
       Recipe.where("abv >= 30 AND abv < 41").each{|x| puts "#{x.id}. #{x.name} has #{x.abv}% ABV."}
+      self.find_cocktail_by_abv_text
     when "4"
+      Screen.clear
       return self.main_menu
     else
       self.invalid_option
+      self.find_cocktail_by_abv_text
     end
-    self.main_menu
+  end
+
+  def self.find_cocktail_by_abv
+    Screen.clear
+    self.find_cocktail_by_abv_text
   end
 end

@@ -32,3 +32,17 @@ require 'sqlite3'
     a = Recipe.find_or_create_by(name: x["name"])
     a.update(abv: a.calculate_abv, preparation: x["preparation"])
   end
+
+  recipe_array.each do |x|
+    if x["ingredients"].find{|x| x.include?("special")}
+      x["ingredients"].select{|y| y.include?("special")}.each do |z|
+        if x["garnish"]
+          RecipeSpecial.find_or_create_by(recipe_id: Recipe.find_by(name: x["name"]).id, special: z["special"], garnish: x["garnish"])
+        else
+          RecipeSpecial.find_or_create_by(recipe_id: Recipe.find_by(name: x["name"]).id, special: z["special"])
+        end
+      end
+    elsif x["garnish"]
+      RecipeSpecial.find_or_create_by(recipe_id: Recipe.find_by(name: x["name"]).id, garnish: x["garnish"])
+    end
+  end
