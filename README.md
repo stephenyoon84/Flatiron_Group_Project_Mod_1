@@ -7,7 +7,7 @@
     - Bartender: Possible to check how many cocktails they can make.
   - Search
     - Search Cocktail by Ingredient
-    - Search Ingredient need for Cocktail
+    - Search Ingredients needed for Cocktail
 
 - Initial steps to run this app
     1. run `rake db:migrate` and `rake db:seed` in your terminal to create database
@@ -17,6 +17,7 @@
   2. As a user, I want to be able to select a drink from a menu and get back all of the required ingredients and amounts.
   3. As a guest, ~~
   4. As a bartender, ~~
+  5. As a user I would like to be able to access a list of drinks according to their strengths (light, medium, strong).
 
 - Table Information
   - Recipe

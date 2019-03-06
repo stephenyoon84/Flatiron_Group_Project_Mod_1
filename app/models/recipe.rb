@@ -4,7 +4,7 @@ class Recipe < ActiveRecord::Base
   has_many :recipe_specials
 
   def print_needed_ingredients
-    puts "Recipe for #{self.name}"
+    puts "\n\n\s\e[4m#{self.name} Recipe\e[0m"
     self.ingredients.each { |ingredient| puts "\s- #{ingredient.name}: #{RecipeIngredient.find_by(recipe_id: self.id, ingredient_id: ingredient.id).amount} cl" }
     if self.recipe_specials.collect{|x| x.special if x.special}.uniq != [nil]
       self.recipe_specials.collect{|x| x.special if x.special}.uniq.each{|y| puts "\s- Special: #{y}"}
