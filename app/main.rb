@@ -104,15 +104,21 @@ class CocktailApp
   def self.find_by_ingredient_second(user_input)
     print "Please select a second ingredient number you want to use with your first ingredient.\nIf you want to go back to the main menu, please input quit.\n\sInput: "
     user_input2 = gets.chomp
-    loop do
-      if user_input2 == user_input
-        print "You already selected that ingredient. Please select different one.\n\sInput: "
-        user_input2 = gets.chomp
-      end
+    # loop do
+      # if user_input2 == user_input
+      #   print "You already selected that ingredient. Please select different one.\n"
+      #   self.find_by_ingredient_second(user_input)
+      # end
       case user_input2
+      when user_input
+        print "You already selected that ingredient. Please select different one.\n"
+        self.find_by_ingredient_second(user_input)
       when "1".."52"
         Ingredient.find(user_input).possible_cocktails_two_ing(Ingredient.find(user_input2))
-        break
+        print "Enjoy your cocktail!!\nPress any key to back to Main menu."
+        Screen.next
+        Screen.clear
+        self.main_menu        # break
       when "quit", "Quit", "QUIT", "q", "Q"
         Screen.clear
         self.main_menu
@@ -120,7 +126,7 @@ class CocktailApp
         self.invalid_option
         self.find_by_ingredient_second(user_input)
       end
-    end
+    # end
   end
 
   def self.find_cocktail_by_ingredient_menu
