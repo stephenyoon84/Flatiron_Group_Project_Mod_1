@@ -73,6 +73,7 @@ class CocktailApp
     case user_input
     when "1".."52"
       Ingredient.find(user_input).print_possible_cocktails
+      self.ask_user_want_second(user_input)
     when "quit", "Quit", "QUIT", "q", "Q"
       Screen.clear
       self.main_menu
@@ -80,7 +81,24 @@ class CocktailApp
       self.invalid_option
       self.find_by_ingredient_first
     end
-    return user_input
+    # return user_input
+  end
+
+  def self.ask_user_want_second(user_input)
+    print "Would you like to add another ingredient? (y/n)\n\sInput: "
+    user_input3 = gets.chomp
+    case user_input3
+    when "y", "Y", "yes", "YES", "Yes"
+      self.find_by_ingredient_second(user_input)
+    when "n", "N", "no", "NO", "No"
+      print "Enjoy your cocktail!!\nPress any key to back to Main menu."
+      Screen.next
+      Screen.clear
+      self.main_menu
+    else
+      self.invalid_option
+      self.ask_user_want_second(user_input)
+    end
   end
 
   def self.find_by_ingredient_second(user_input)
@@ -108,20 +126,21 @@ class CocktailApp
   def self.find_cocktail_by_ingredient_menu
     Screen.clear
     DisplayTable.ingredients_table
-    user_input = self.find_by_ingredient_first
-    print "Would you like to add another ingredient? (y/n)\n\sInput: "
-    user_input3 = gets.chomp
-    case user_input3
-    when "y", "Y", "yes", "YES", "Yes"
-      self.find_by_ingredient_second(user_input)
-    when "n", "N", "no", "NO", "No"
-      print "Enjoy your cocktail!!\nPress any key to back to Main menu."
-      Screen.next
-      Screen.clear
-      self.main_menu
-    else
-      self.invalid_option
-    end
+    self.find_by_ingredient_first
+    # user_input = self.find_by_ingredient_first
+    # print "Would you like to add another ingredient? (y/n)\n\sInput: "
+    # user_input3 = gets.chomp
+    # case user_input3
+    # when "y", "Y", "yes", "YES", "Yes"
+    #   self.find_by_ingredient_second(user_input)
+    # when "n", "N", "no", "NO", "No"
+    #   print "Enjoy your cocktail!!\nPress any key to back to Main menu."
+    #   Screen.next
+    #   Screen.clear
+    #   self.main_menu
+    # else
+    #   self.invalid_option
+    # end
     # self.main_menu
   end
 
