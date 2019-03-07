@@ -9,6 +9,7 @@ Colorfont = Pastel.new
   end
 
   def possible_cocktails_two_ing(ing2)
+    raise ArgumentError if !(ing2.is_a? Ingredient)
     combination = self.recipes & ing2.recipes
     if combination.empty?
       print Colorfont.white("\n\sSorry. There are no recipes with that combination of ingredients.")
