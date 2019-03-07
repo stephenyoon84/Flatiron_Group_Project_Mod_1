@@ -10,6 +10,7 @@ describe Recipe do
     @r_l2 = RecipeIngredient.find_or_create_by(recipe_id: Recipe.find_by(name: "A2B2").id, ingredient_id: Ingredient.find_by(name: "B").id, amount: 2.0)
     @r_l3 = RecipeIngredient.find_or_create_by(recipe_id: Recipe.find_by(name: "A1B4").id, ingredient_id: Ingredient.find_by(name: "A").id, amount: 1.0)
     @r_l4 = RecipeIngredient.find_or_create_by(recipe_id: Recipe.find_by(name: "A1B4").id, ingredient_id: Ingredient.find_by(name: "B").id, amount: 4.0)
+    @r_s1 = RecipeSpecial.find_or_create_by(recipe_id: Recipe.find_by(name: "A2B2").id, special: "salt")
   end
 
   after :all do
@@ -21,15 +22,15 @@ describe Recipe do
     RecipeIngredient.find(@r_l2.id).delete
     RecipeIngredient.find(@r_l3.id).delete
     RecipeIngredient.find(@r_l4.id).delete
+    RecipeSpecial.find(@r_s1.id).delete
   end
 
   it "1. recipe has many ingredients through recipe_ingredients" do
     expect(@recipe1.ingredients).to include(@liqour1, @liqour2)
-    expect(@recipe2.ingredients).to include(@liqour1, @liqour2)
   end
 
-  it "2. recipe has many ingredients through recipe_ingredients" do
-    expect(@recipe2.ingredients).to include(@liqour1, @liqour2)
+  it "2. recipe has many special ingredients through recipe_specials" do
+    expect(@recipe1.recipe_specials).to include(@r_s1)
   end
 
   it "3. Recipe#get_ingredients_total_alcohol can calculate recipe's total alcohol of cocktail" do
