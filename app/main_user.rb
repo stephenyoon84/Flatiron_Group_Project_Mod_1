@@ -17,7 +17,7 @@ class CocktailApp_User < CocktailApp
     when "3"
       self.find_cocktail_by_abv(user_name)
     when "4"
-      put "Your list."
+      puts "Your list."
       Screen.next
       self.main_menu(user_name)
     when "5"
