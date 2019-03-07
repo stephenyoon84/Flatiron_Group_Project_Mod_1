@@ -7,9 +7,9 @@
   - Select a cocktail from a menu and retrieve its ingredients/recipe.
   - Search for a list of cocktails based on strength (light, medium, strong).
 
-  - User
-    - Guest: Guest can only use search function. Guest can create user account.
-    - User: Has account. User can create their own favorite list of cocktails.
+- User(optional)
+  - Guest: Guest can only use search function. Guest can create user account.
+  - User: Has account. User can create their own favorite list of cocktails.
 
 - Initial steps to run this app
     1. run `rake db:migrate` and `rake db:seed` in your terminal to create database
@@ -18,8 +18,8 @@
 - Story (At least 4)
   1. As a user, I want to be able to enter an ingredient/ingredients that I currently have and get back a list of drinks that I can make with what I have.
   2. As a user, I want to be able to select a drink from a menu and get back all of the required ingredients, amounts, and mixing instructions.
-  3. As a guest, I want to become an user.
-  4. As a user I would like to be able to access a list of drinks according to their strengths (light, medium, strong).
+  3. As a user, ~~.
+  4. As a user, I would like to be able to access a list of drinks according to their strengths (light, medium, strong).
 
 - Table Information
   - Recipes
@@ -30,7 +30,7 @@
   - Ingredients
     - name
     - abv
-    - taste(optional)
+    - taste
 
   - RecipeIngredients
     - recipe_id
@@ -41,10 +41,10 @@
     - special
     - garnish
 
-  - User
+  - User(optional)
     - name
     - user_name
-    - password
+    - password_digest
   - etc.
 
 - Title
