@@ -33,3 +33,16 @@ class DisplayTable
     puts new_table
   end
 end
+
+module Screen
+   def self.clear
+       print "\ec\e[3J"
+   end
+
+   def self.next
+     user_input = nil
+     while user_input == nil
+       user_input = gets.chomp
+     end
+   end
+end
