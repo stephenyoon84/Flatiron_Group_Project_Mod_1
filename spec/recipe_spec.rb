@@ -6,6 +6,10 @@ describe Recipe do
     @liqour2 = Ingredient.find_or_create_by(name: "B", abv: 20)
     @recipe1 = Recipe.find_or_create_by(name: "A2B2")
     @recipe2 = Recipe.find_or_create_by(name: "A1B4")
+    @r_l1 = RecipeIngredient.find_or_create_by(recipe_id: Recipe.find_by(name: "A2B2").id, ingredient_id: Ingredient.find_by(name: "A").id, amount: 2.0)
+    @r_l2 = RecipeIngredient.find_or_create_by(recipe_id: Recipe.find_by(name: "A2B2").id, ingredient_id: Ingredient.find_by(name: "B").id, amount: 2.0)
+    @r_l3 = RecipeIngredient.find_or_create_by(recipe_id: Recipe.find_by(name: "A1B4").id, ingredient_id: Ingredient.find_by(name: "A").id, amount: 1.0)
+    @r_l4 = RecipeIngredient.find_or_create_by(recipe_id: Recipe.find_by(name: "A1B4").id, ingredient_id: Ingredient.find_by(name: "B").id, amount: 4.0)
   end
 
   after :all do
@@ -13,9 +17,30 @@ describe Recipe do
     Ingredient.find(@liqour2.id).delete
     Recipe.find(@recipe1.id).delete
     Recipe.find(@recipe2.id).delete
+    RecipeIngredient.find(@r_l1.id).delete
+    RecipeIngredient.find(@r_l2.id).delete
+    RecipeIngredient.find(@r_l3.id).delete
+    RecipeIngredient.find(@r_l4.id).delete
   end
 
-  it "recipe has many ingredients through recipe_ingredients" do
-    expect(@recipe1.ingredients).to eq([@liqour1, @liqour2])
+  it "1. recipe has many ingredients through recipe_ingredients" do
+    expect(@recipe1.ingredients).to include(@liqour1, @liqour2)
+    expect(@recipe2.ingredients).to include(@liqour1, @liqour2)
+  end
+
+  it "2. recipe has many ingredients through recipe_ingredients" do
+    expect(@recipe2.ingredients).to include(@liqour1, @liqour2)
+  end
+
+  it "3. Recipe#get_ingredients_total_alcohol can calculate recipe's total alcohol of cocktail" do
+    expect(@recipe1.get_ingredients_total_alcohol).to eq(120.0)
+  end
+
+  it "4. Recipe#get_ingredients_total_amount can calculate recipe's total amount of cocktail" do
+    expect(@recipe1.get_ingredients_total_amount).to eq(4.0)
+  end
+
+  it "5. Recipe#calculate_abv can calculate recipe's ABV" do
+    expect(@recipe1.calculate_abv).to eq(30)
   end
 end

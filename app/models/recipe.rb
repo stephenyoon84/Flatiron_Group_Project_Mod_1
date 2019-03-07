@@ -25,7 +25,7 @@ class Recipe < ActiveRecord::Base
   end
 
   def calculate_abv
-    self.get_ingredients_total_alcohol / self.get_ingredients_total_amount
+    (self.get_ingredients_total_alcohol / self.get_ingredients_total_amount).to_i
   end
 
 end
