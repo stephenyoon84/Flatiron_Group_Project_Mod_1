@@ -7,7 +7,7 @@ class CocktailApp_User < CocktailApp
     user_name = user_name_input
     Screen.clear
     Artscii.welcome
-    print "\n\n\sPlease choose the menu.\n\s\s1. Find a cocktail by name.\n\s\s2. Find possible cocktail with your own liqours.\n\s\s3. Find cocktails based on ther ABV.\n\s\s4. Profile\n\s\s5. Exit.\n\s\sInput: "
+    print "\n\n\sPlease choose the menu.\n\s\s1. Find a cocktail by name.\n\s\s2. Find possible cocktail with your own liqours.\n\s\s3. Find cocktails based on ther ABV.\n\s\s4. Your list.\n\s\s5. Profile\n\s\s6. Exit.\n\s\sInput: "
     user_input = gets.chomp
     case user_input
     when "1"
@@ -17,8 +17,12 @@ class CocktailApp_User < CocktailApp
     when "3"
       self.find_cocktail_by_abv(user_name)
     when "4"
-      self.user_profile(user_name)
+      put "Your list."
+      Screen.next
+      self.main_menu(user_name)
     when "5"
+      self.user_profile(user_name)
+    when "6"
       Screen.clear
       Artscii.goodbye
     else
