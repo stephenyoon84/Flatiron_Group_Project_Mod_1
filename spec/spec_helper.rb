@@ -25,14 +25,15 @@ RSpec.configure do |config|
     DatabaseCleaner.start
   end
 
-  # config.around(:each) do
-  #   DatabaseCleaner.clean
-  # end
-  config.around(:each) do |example|
-    DatabaseCleaner.cleaning do
-      example.run
-    end
+  config.after(:each) do
+    DatabaseCleaner.clean
   end
+  # config.around(:each) do |example|
+  #   DatabaseCleaner.cleaning do
+  #     example.run
+  #   end
+  # end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
