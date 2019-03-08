@@ -39,27 +39,27 @@
     - garnish
 
 
-    - Title
-    - http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Get%20your%20Cocktail
+- Title
+  - http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Get%20your%20Cocktail
 
-    - JSON url
-    - <a href="https://github.com/teijo/iba-cocktails" target="_blank">IBA-Cocktails</a>
-    - <a href="https://github.com/teijo/iba-cocktails/blob/master/ingredients.json" target="_blank">Ingredient</a>
-    - <a href="https://github.com/teijo/iba-cocktails/blob/master/recipes.json" target="_blank">Recipe</a>
+- JSON url
+  - <a href="https://github.com/teijo/iba-cocktails" target="_blank">IBA-Cocktails</a>
+  - <a href="https://github.com/teijo/iba-cocktails/blob/master/ingredients.json" target="_blank">Ingredient</a>
+  - <a href="https://github.com/teijo/iba-cocktails/blob/master/recipes.json" target="_blank">Recipe</a>
 
-    - Final Project Guideline
-    - https://learn.co/tracks/web-development-immersive-2-0-module-one/project-mode/projects/final-project-guidelines
+- Final Project Guideline
+  - https://learn.co/tracks/web-development-immersive-2-0-module-one/project-mode/projects/final-project-guidelines
 
-    - Github
-    - Sean: https://github.com/seanlucius
-    - Stephen: https://github.com/stephenyoon84
+- Github
+  - Sean: https://github.com/seanlucius
+  - Stephen: https://github.com/stephenyoon84
 
-  In the future, we intend to implement more features such as:
+In the future, we intend to implement more features such as:
 
-  - User
-    - name
-    - user_name
-    - password
-  - etc.
+- User
+  - name
+  - user_name
+  - password
+- etc.
 
-  - Guest: Guest can only use search function. Guest can create user account.
+- Guest: Guest can only use search function. Guest can create user account.
