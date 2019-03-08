@@ -7,12 +7,6 @@
   - Select a cocktail from a menu and retrieve its ingredients/recipe.
   - Search for a list of cocktails based on strength (light, medium, strong).
 
-<<<<<<< HEAD
-=======
-- User(optional)
-  - Guest: Guest can only use search function. Guest can create user account.
-  - User: Has account. User can create their own favorite list of cocktails.
->>>>>>> 03937a7306d69cdc0864d948419a3080fafa21b7
 
 - To run this app
     1. run `rake db:migrate` and `rake db:seed` in your terminal to create database
@@ -20,15 +14,9 @@
 
 - User Stories
   1. As a user, I want to be able to enter an ingredient/ingredients that I currently have and get back a list of drinks that I can make with what I have.
-<<<<<<< HEAD
   2. As a user, I want to be able to input a second ingredient that I have to check for any drinks that use it and the first ingredient.
   3. As a user, I want to be able to select a drink from a menu and get back all of the required ingredients, amounts, and mixing instructions.
   4. As a user I would like to be able to access a list of drinks according to their strengths (light, medium, strong).
-=======
-  2. As a user, I want to be able to select a drink from a menu and get back all of the required ingredients, amounts, and mixing instructions.
-  3. As a user, ~~.
-  4. As a user, I would like to be able to access a list of drinks according to their strengths (light, medium, strong).
->>>>>>> 03937a7306d69cdc0864d948419a3080fafa21b7
 
 - Table Information
   - Recipes
@@ -50,14 +38,6 @@
     - special
     - garnish
 
-<<<<<<< HEAD
-=======
-  - User(optional)
-    - name
-    - user_name
-    - password_digest
-  - etc.
->>>>>>> 03937a7306d69cdc0864d948419a3080fafa21b7
 
     - Title
     - http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Get%20your%20Cocktail
