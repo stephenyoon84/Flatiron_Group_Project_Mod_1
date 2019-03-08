@@ -130,7 +130,7 @@ class CocktailApp
   end
 
   def self.find_cocktail_by_abv_text
-    print Color.white("\n\n\sChoose one of the following options for a list of drinks based off strength:\n\n\s1. Light Cocktails\n\s2. Medium Cocktails\n\s3. Strong Cocktails\n\s4. Main Menu\n\n\s\sInput: ")
+    print Color.white("\n\n\sChoose one of the following options for a list of drinks according strength:\n\n\s1. Light Cocktails\n\s2. Medium Cocktails\n\s3. Strong Cocktails\n\s4. Main Menu\n\n\s\sInput: ")
     user_input = gets.chomp
     case user_input
     when "1"
