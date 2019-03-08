@@ -2,9 +2,8 @@ require_relative '../config/environment'
 require 'json'
 require 'sqlite3'
 
-# class ImportJson
+
   ingredient_path = File.expand_path('../ingredients.json', __FILE__)
-  # ingredient_file = File.read(path)
   ingredient_hash = JSON.parse(File.read(ingredient_path))
 
   ingredient_hash.each do |k, v|

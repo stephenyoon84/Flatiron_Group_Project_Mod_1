@@ -4,12 +4,15 @@ class Ingredient < ActiveRecord::Base
 
 Colorfont = Pastel.new
 
+#----#print_possible_cocktails accesses the recipes that include the ingredient this method is called on through recipe_ingredients
   def print_possible_cocktails
     self.recipes.each { |drink| puts Colorfont.white("* #{drink.name}") }
   end
 
+#----#possible_cocktails_two_ing(ing) checks for any possible recipes with this combination
   def possible_cocktails_two_ing(ing2)
     raise ArgumentError if !(ing2.is_a? Ingredient)
+    # & returns an array of elements shared between two arrays
     combination = self.recipes & ing2.recipes
     if combination.empty?
       print Colorfont.white("\n\sSorry. There are no recipes with that combination of ingredients.")
