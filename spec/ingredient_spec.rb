@@ -40,7 +40,7 @@ describe Ingredient do
     expect(@ingredient2.print_possible_cocktails).to match_array([@recipe2, @recipe1])
   end
 
-  it "#possible_cocktails_two_ing(ing2) raises an Argument error if input is not an Ingredient object" do
+  it "#possible_cocktails_two_ing(ing2) raises an Argument error if argument is not an instance of Ingredient class" do
     expect{ @ingredient1.possible_cocktails_two_ing(5) }.to raise_error ArgumentError
   end
 end
